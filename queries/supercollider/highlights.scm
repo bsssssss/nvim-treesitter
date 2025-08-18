@@ -32,10 +32,13 @@
 (method_call
   name: (method_name) @function.method.call)
 
-(instance_method_name) @function.method
-
 ; Classes
 (class) @type
+
+(instance_method_name) @function.method
+
+(instance_var
+  name: (identifier)) @variable
 
 ; Literals
 (number) @number
