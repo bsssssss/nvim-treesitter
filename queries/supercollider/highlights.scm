@@ -40,6 +40,8 @@
 (instance_var
   name: (identifier)) @variable
 
+(instance_builtin_var) @variable.builtin
+
 ; Literals
 (number) @number
 
@@ -74,6 +76,7 @@
   "="
   "++"
   "+/+"
+  "??"
 ] @operator
 
 ; Keywords
