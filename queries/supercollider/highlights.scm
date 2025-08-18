@@ -32,6 +32,8 @@
 (method_call
   name: (method_name) @function.method.call)
 
+(instance_method_name) @function.method
+
 ; Classes
 (class) @type
 
