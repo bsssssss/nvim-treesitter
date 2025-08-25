@@ -25,8 +25,13 @@
   name: (variable) @function)
 
 ; For function calls
+; (named_argument
+;   name: (identifier) @function.call)
+
 (named_argument
-  name: (identifier) @function.call)
+  name: (identifier) @variable.parameter)
+
+(associative_item (identifier)) @variable.parameter
 
 ; Methods
 (method_call
@@ -40,8 +45,6 @@
 
 (instance_var
   name: (identifier)) @variable
-
-(instance_builtin_var) @variable.builtin
 
 ; Literals
 (number) @number
