@@ -34,14 +34,16 @@
 (associative_item (identifier)) @variable.parameter
 
 ; Methods
-(method_call
-  name: (method_name) @function.method.call)
+; (method_call
+;   name: (method_name) @function.method.call)
 (method_name) @function.method.call
 
 ; Classes
 (class) @type
+(parent_class) @type
 
 (instance_method_name) @function.method
+(class_method_name) @function.method
 
 (instance_var
   name: (identifier)) @variable
@@ -81,6 +83,7 @@
   "++"
   "+/+"
   "??"
+  ".."
 ] @operator
 
 ; Keywords
@@ -112,7 +115,17 @@
 ] @punctuation.delimiter
 
 ; control structure
-(control_structure) @keyword.conditional
+; (control_structure) @keyword.conditional
+; this highlights only the keywords and not the whole block
+[
+  "if"
+  "while"
+  "for"
+  "forBy"
+  "case"
+  "switch"
+]
+@keyword.conditional
 
 (escape_sequence) @string.escape
 
