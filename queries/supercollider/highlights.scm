@@ -15,28 +15,28 @@
   name: (identifier) @variable)
 
 (environment_var
-  name: (identifier) @variable.builtin)
+  name: (identifier) @variable.member)
 
-(builtin_var) @constant.builtin
+(single_letter_var
+  name: (identifier) @variable)
 
-; (variable) @variable
+; Builtins
+(builtin_var) @variable.builtin
+(builtin_constant) @constant.builtin
+
 ; Functions
 (function_definition
   name: (variable) @function)
 
 ; For function calls
-; (named_argument
-;   name: (identifier) @function.call)
-
 (named_argument
   name: (identifier) @variable.parameter)
 
-(associative_item (identifier)) @variable.parameter
+(associative_item (identifier)) @variable.member
 
 ; Methods
-; (method_call
-;   name: (method_name) @function.method.call)
 (method_name) @function.method.call
+(partial) @operator
 
 ; Classes
 (class) @type
@@ -50,13 +50,9 @@
 
 ; Literals
 (number) @number
-
 (bool) @boolean
-
 (float) @number.float
-
 (string) @string
-
 (symbol) @string.special.symbol
 
 ; Operators
@@ -82,8 +78,8 @@
   "="
   "++"
   "+/+"
-  "??"
   ".."
+  "..."
 ] @operator
 
 ; Keywords
@@ -91,8 +87,6 @@
   "arg"
   "classvar"
   "const"
-  ; "super"
-  ; "this"
   "var"
 ] @keyword
 
@@ -115,8 +109,6 @@
 ] @punctuation.delimiter
 
 ; control structure
-; (control_structure) @keyword.conditional
-; this highlights only the keywords and not the whole block
 [
   "if"
   "while"
@@ -124,6 +116,9 @@
   "forBy"
   "case"
   "switch"
+  "?"
+  "!?"
+  "??"
 ]
 @keyword.conditional
 
